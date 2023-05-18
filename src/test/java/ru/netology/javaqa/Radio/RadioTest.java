@@ -1,8 +1,7 @@
-package ru.netology.javaqa;
+package ru.netology.javaqa.Radio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 public class RadioTest {
 
     @Test

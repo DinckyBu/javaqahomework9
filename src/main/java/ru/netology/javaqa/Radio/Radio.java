@@ -1,4 +1,4 @@
-package ru.netology.javaqa;
+package ru.netology.javaqa.Radio;
 
 public class Radio {
     public int currentRadio; //текущая радиостанция
@@ -97,4 +97,3 @@ public class Radio {
 
 }
 
-}
