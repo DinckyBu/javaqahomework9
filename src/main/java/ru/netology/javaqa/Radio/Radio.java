@@ -78,7 +78,7 @@ public class Radio {
     }
 
     public int decreaseTheVolumeByOne() {
-        if (currentVolume >= 0) {
+        if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
         if (currentVolume == 0) {
