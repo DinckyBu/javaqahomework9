@@ -7,7 +7,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadio() { //выбор станции в ручную
-        Radio radio = new Radio(); //объект радио
+        Radio radio = new Radio(0, 9, 0, 100); //объект радио
 
         radio.setCurrentRadio(10);
         int expected = 0;
@@ -19,7 +19,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioLess() { //граничные значения
-        Radio radio = new Radio(); //объект радио
+        Radio radio = new Radio(0, 9, 0, 100); //объект радио
 
         radio.setCurrentRadio(-1);
         int expected = 0;
@@ -31,7 +31,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextRadio2() { //переключение на следующую станцию граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentRadio(2);
 
@@ -43,7 +43,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextRadio() { //переключение на следующую станцию граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentRadio(9);
 
@@ -55,7 +55,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevRadio() { //переключение на предыдущую станцию граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentRadio(0);
 
@@ -67,7 +67,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevRadio4() { //переключение на предыдущую станцию эквивалентные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentRadio(4);
 
@@ -79,7 +79,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetRadioAboveMax() { //граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentRadio(15);
 
@@ -91,7 +91,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseRadio1() { //переключение на текущую станцию
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
         radio.setCurrentRadio(9);
 
         radio.increaseRadio1();
@@ -104,7 +104,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetToMaxRadio() { //максимальное значение
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setToMaxRadio();
 
@@ -116,7 +116,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetToMinRadio() { //минимальное значение
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setToMinRadio();
 
@@ -128,11 +128,11 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolume() { //выставление громкости
-        Radio radio = new Radio(); //объект радио
+        Radio volume = new Radio(0, 9, 0, 100); //объект радио
 
-        radio.setCurrentVolume(109);
+        volume.setCurrentVolume(109);
         int expected = 0;
-        int actual = radio.getCurrentVolume();
+        int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
@@ -140,7 +140,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeLess() { //граничные значения громкости
-        Radio radio = new Radio(); //объект радио
+        Radio radio = new Radio(0, 9, 0, 100); //объект радио
 
         radio.setCurrentVolume(-2);
         int expected = 0;
@@ -152,7 +152,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeByOne() { //увеличение громкости на 1, эквивалентные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentVolume(99);
 
@@ -164,7 +164,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeByOne() { //уменьшение громкости, эквивалентные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentVolume(4);
 
@@ -176,7 +176,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeByOne0() { //уменьшение громкости, граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentVolume(0);
 
@@ -188,7 +188,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetRadioAboveMaxVolume() { //выставление громкости выше максимальной, граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setCurrentVolume(105);
 
@@ -200,7 +200,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetToMaxVolume() { //максимальная громкость, граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setToMaxVolume();
 
@@ -212,7 +212,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetToMinVolume() { //минимальная громкость, граничные значения
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9, 0, 100);
 
         radio.setToMinVolume();
 
@@ -222,5 +222,6 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 }
+
 
 

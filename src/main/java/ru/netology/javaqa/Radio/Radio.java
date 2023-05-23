@@ -1,38 +1,56 @@
 package ru.netology.javaqa.Radio;
 
 public class Radio {
-    public int currentRadio; //текущая радиостанция
+    private int maxRadio = 9;
+    private int minRadio = 0;
+    private int currentRadio = minRadio; //текущая радиостанция
+    private int minVolume = 0;
+    private int maxVolume = 100;
+    private int currentVolume = minVolume;
+
+    public Radio(int minRadio, int maxRadio, int minVolume, int maxVolume) {
+        this.minRadio = minRadio;
+        this.maxRadio = maxRadio;
+        this.currentRadio = minRadio;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.currentVolume = minVolume;
+    }
+
+    public int getCurrentVolume() {//получить данные
+        return currentVolume;
+    }
 
     public int getCurrentRadio() {//получить данные
         return currentRadio;
     }
 
     public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio < 0) {
+        if (newCurrentRadio < minRadio) {
             return;
         }
-        if (newCurrentRadio > 9) {
+        if (newCurrentRadio > maxRadio) {
             return;
         }
         currentRadio = newCurrentRadio;
     }
 
     public int next() {
-        if (currentRadio < 9) {
+        if (currentRadio < maxRadio) {
             currentRadio = currentRadio + 1;
         }
-        if (currentRadio == 9) {
-            currentRadio = 0;
+        if (currentRadio == maxRadio) {
+            currentRadio = minRadio;
         }
         return currentRadio;
     }
 
     public int prev() {
-        if (currentRadio > 0) {
+        if (currentRadio > minRadio) {
             currentRadio = currentRadio - 1;
         }
-        if (currentRadio == 0) {
-            currentRadio = 9;
+        if (currentRadio == minRadio) {
+            currentRadio = maxRadio;
         }
         return currentRadio;
     }
@@ -43,57 +61,50 @@ public class Radio {
     }
 
     public void setToMaxRadio() {    //меняется внутреннее состояние, функция
-        currentRadio = 9;
+        currentRadio = maxRadio;
     }
 
     public void setToMinRadio() {
-        currentRadio = 0;
+        currentRadio = minRadio;
     }
 
-
-    public int currentVolume; //текущая громкость
-
-    public int getCurrentVolume() {//получить данные
-        return currentVolume;
-    }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public int increaseTheVolumeByOne() {
-        if (currentVolume <= 100) {
+        if (currentVolume <= maxVolume) {
             currentVolume = currentVolume + 1;
         }
-        if (currentVolume == 100) {
-            currentVolume = 100;
+        if (currentVolume == maxVolume) {
+            currentVolume = maxVolume;
         }
         return currentVolume;
     }
 
     public int decreaseTheVolumeByOne() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume == 0) {
-            currentVolume = 0;
+        if (currentVolume == minVolume) {
+            currentVolume = minVolume;
         }
         return currentVolume;
     }
 
     public int setToMaxVolume() {    //меняется внутреннее состояние, функция
-        return currentVolume = 100;
+        return currentVolume = maxVolume;
     }
 
     public void setToMinVolume() {
-        currentVolume = 0;
+        currentVolume = minVolume;
     }
 
 }
-
