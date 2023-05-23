@@ -68,7 +68,7 @@ public class Radio {
     }
 
     public int increaseTheVolumeByOne() {
-        if (currentVolume < 100) {
+        if (currentVolume <= 100) {
             currentVolume = currentVolume + 1;
         }
         if (currentVolume == 100) {
