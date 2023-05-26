@@ -14,6 +14,7 @@ public class Radio {
         if (newCurrentRadio > 9) {
             return;
         }
+        
         currentRadio = newCurrentRadio;
     }
 
